@@ -1,0 +1,479 @@
+
+WindowManager:
+    MainWindow:
+        id: main_win
+        name: "main"
+    SecondWindow:
+        id: second
+        name: "second"
+    ThirdWindow:
+        id: third
+        name: "third"
+
+<FlatButton@ButtonBehavior+Label>:
+    font_size:16
+
+<MainWindow>:
+    name: "main"
+    BoxLayout:
+        id: main_win
+        orientation:'vertical'
+        spacing:10
+        space_x: self.size[0]/3
+        canvas.before:
+            Color:
+                rgb: 0.92,0.87,0.87
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            size_hint_y:None
+            height:40
+            canvas.before:
+                Color:
+                    rgb: 0.6,0.12,0.12
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text:""
+                bold: True
+                size_hint_x:92
+            FlatButton:
+                size_hint_x:8
+                text: "x"
+                on_press:app.stop()
+        BoxLayout:
+            orientation:'vertical'
+            padding: main_win.space_x,10
+            spacing:20
+            Image:
+                source: 'img/corel3.png'
+                height:30
+
+            BoxLayout:
+                orientation:'vertical'
+                spacing:10
+                size_hint_y:None
+                height:80
+                TextInput:
+                    id: username
+                    hint_text: "Username"
+                    multiline: False
+                    focus:True
+                    on_text_validate: password.focus=True
+                TextInput:
+                    id: password
+                    hint_text: "Password"
+                    password: True
+                    multiline: False
+                    on_text_validate: root.validate_user()
+            Label:
+                size_hint_y:None
+                height:10
+            Button:
+                text:"Sign In"
+                size_hint_y:None
+                height:40
+                background_color: ( 0.41, 0.1 , 0.14 , 0.95 )
+                on_release: root.validate_user()
+            Label:
+                size_hint_y:None
+#app.root.current = "second" if sifre.text == "123456" else "main"
+#root.manager.transition.direction = "left"
+#:import MeshLinePlot kivy.garden.graph.MeshLinePlot
+<SecondWindow>:
+    name: "second"
+    id: second
+    BoxLayout:
+        orientation: 'vertical'
+        height:20
+        spacing:20
+        canvas.before:
+            Color:
+                rgb: 0.92,0.87,0.87
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            pos_hint:  {'top':1}
+            size_hint_y:8
+            canvas.before:
+                Color:
+                    rgb: 0.6,0.12,0.12
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ActionBar:
+                ActionView:
+                    ActionPrevious:
+                        title:"Go Back"
+                        with_previous:False
+                        app_icon: 'img/back.png'
+                        on_press:app.root.current = "main"
+                    ActionButton:
+                        text:"Next Page"
+                        id: next
+                        icon:'img/next.png'
+                        on_press:app.root.current = "third"
+                    ActionButton:
+                        text:"Exit"
+                        id: exit
+                        icon:'img/power.png'
+                        on_press:app.stop()
+        BoxLayout:
+            size_hint_y:4
+            Label:
+                color: ( 0.41, 0.1 , 0.14 , 0.95 )
+                bold:True
+                text:"Users"
+            Label:
+                color: ( 0.41, 0.1 , 0.14 , 0.95 )
+                text:"Value"
+                bold: True
+        BoxLayout:
+            size_hint_y:1
+            canvas.before:
+                Color:
+                    rgb: 0.6,0.12,0.12
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        BoxLayout:
+            size_hint_y:9
+            Label:
+                text:"Ali Bayram"
+                color: 0,0,0,1
+            Label:
+                text:"{}".format(int(knob1.value))
+                color: 0,0,0,1
+        BoxLayout:
+            size_hint_y:1
+            canvas.before:
+                Color:
+                    rgb: 0.6,0.12,0.12
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        BoxLayout:
+            size_hint_y:9
+            Label:
+                text:"Ali Bayram"
+                color: 0,0,0,1
+            Label:
+                text:"{}".format(int(knob2.value))
+                color: 0,0,0,1
+        BoxLayout:
+            size_hint_y:1
+            canvas.before:
+                Color:
+                    rgb: 0.6,0.12,0.12
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        BoxLayout:
+            size_hint_y:9
+            Label:
+                text:"Ali Bayram"
+                color: 0,0,0,1
+            Label:
+                text:"{}".format(int(knob3.value))
+                color: 0,0,0,1
+
+        BoxLayout:
+            size_hint_y:1
+            canvas.before:
+                Color:
+                    rgb: 0.6,0.12,0.12
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        BoxLayout:
+            size_hint_y:9
+            Label:
+                text:"Ali Bayram"
+                color: 0,0,0,1
+            Label:
+                text:"{}".format(int(knob4.value))
+                color: 0,0,0,1
+        BoxLayout:
+            size_hint_y:1
+            canvas.before:
+                Color:
+                    rgb: 0.6,0.12,0.12
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        BoxLayout:
+            size_hint_y:9
+            Label:
+                size_hint_x:4
+                text:"Ali Bayram"
+                color: 0,0,0,1
+            Label:
+                size_hint_x:4
+                text:"{}".format(int(knob5.value))
+                color: 0,0,0,1
+
+        BoxLayout:
+            size_hint_y:1
+            canvas.before:
+                Color:
+                    rgb: 0.6,0.12,0.12
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        GridLayout:
+            size_hint_y:37
+            pos: root.pos
+            size: root.size
+            cols: 5
+            padding:50
+            spacing: 130
+
+            padding: 50
+            Knob:
+                id:knob1
+                size: 70,70
+                value: 0
+                show_marker: True
+                knobimg_source: "img/knob_metal.png"
+                marker_img: "img/bline.png"
+                markeroff_color: 0.3, 0.3, .3, 1
+            Knob:
+                id:knob2
+                size: 70,70
+                value: 0
+                show_marker: True
+                knobimg_source: ""
+                knobimg_color: 0, 0, 0, 0
+                marker_img: "img/bline.png"
+                markeroff_color: 0, 0, 0, 0
+                marker_inner_color: 0, 0, 0, 1
+            Knob:
+                id:knob3
+                size: 70,70
+                value: 0
+                show_marker: True
+                knobimg_source: "img/knob_metal.png"
+                marker_img: "img/bline2.png"
+                markeroff_img: "img/bline2_off.png"
+                markeroff_color: 0.3, 0.3, .3, 1
+                marker_ahead: 6
+                knobimg_size: 0.8
+                marker_startangle: 6
+            Knob:
+                id:knob4
+                size: 70,70
+                value: 0
+                show_marker: True
+                knobimg_source: "img/knob_metal.png"
+                marker_img: "img/bline.png"
+                markeroff_color: 0.0, 0.0, .0, 1
+                knobimg_size: 0.7
+            Knob:
+                id:knob5
+                size: 70,70
+                value: 0
+                show_marker: True
+                knobimg_source: "img/knob_metal.png"
+                marker_img: "img/bline.png"
+                markeroff_color: 0.0, 0.0, .0, 1
+                knobimg_size: 0.7
+
+<ThirdWindow>:
+    name: "third"
+    id: third
+    BoxLayout:
+        orientation:'vertical'
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    title:"Go Back"
+                    with_previous:False
+                    app_icon: 'img/back.png'
+                    on_press:app.root.current = "second"
+                ActionButton:
+                    text:"Next Page"
+                    id: next
+                    icon:'img/next.png'
+                    on_press:app.root.current = "third"
+                ActionButton:
+                    text:"Exit"
+                    id: exit
+                    icon:'img/power.png'
+                    on_press:app.stop()
+        BoxLayout:
+            padding:20
+            spacing:50
+            canvas.before:
+                Color:
+                    rgb: 0.18,0.19,0.22
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            BoxLayout:
+                padding:20
+                size_hint_x:60
+                id:deneme
+                #import MeshLinePlot kivy_garden.graph.MeshLinePlot
+
+            BoxLayout:
+                size_hint_x:40
+                orientation:'vertical'
+                BoxLayout:
+                    padding:7
+                    size_hint_y:20
+                    orientation:'vertical'
+                    Label:
+                        size_hint_y:3
+                        text:"Current Temp"
+                        font_name: "prototype"
+                        font_size:20
+                        color: 1,1,1,1
+                        bold: True
+                        canvas.before:
+                            Color:
+                                rgb: 0.26,0.28,0.32
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                    Label:
+                        size_hint_y:4
+                        id: current_temp
+                        text:""
+                        font_size:40
+                        color: 0.16,0.6,0.75,1
+                        bold: True
+                        canvas.before:
+                            Color:
+                                rgb: 0.13,0.14,0.16
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                BoxLayout:
+                    padding:7
+                    size_hint_y:20
+                    orientation:'vertical'
+                    Label:
+                        size_hint_y:3
+                        text:"Total Time"
+                        font_name: "prototype"
+                        font_size:20
+                        color: 1,1,1,1
+                        bold: True
+                        canvas.before:
+                            Color:
+                                rgb: 0.26,0.28,0.32
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                    Label:
+                        size_hint_y:4
+                        font_size:40
+                        id: etiket
+                        text:"00:00:00"
+                        bold: True
+                        color: 0.15,0.7,0.3,1
+                        canvas.before:
+                            Color:
+                                rgb: 0.13,0.14,0.16
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                BoxLayout:
+                    size_hint_y:5
+                    Label:
+                        size_hint_x:15
+                        text: "Temp"
+                        font_name: "prototype"
+                        color: 1,1,1,1
+                        bold: True
+                        font_size:15
+                    Label:
+                        size_hint_x:85
+                BoxLayout:
+                    size_hint_y:5
+                    Slider:
+                        id: slider_temp
+                        size_hint_x:8
+                        padding:15
+                        min:0
+                        max:100
+                        value:0
+                        value_track:True
+                        value_track_color: [0.94,0.69,0.09,1]
+                        value_track_width: 5
+                    Label:
+                        size_hint_x:2
+                        text:"{}".format(int(slider_temp.value))
+                        font_name: "prototype"
+                        font_size:15
+                        color:1,1,1,1
+                        bold:True
+                        canvas.before:
+                            Color:
+                                rgb: 0.13,0.14,0.16
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                BoxLayout:
+                    size_hint_y:5
+                    Label:
+                        size_hint_x:15
+                        color: 1,1,1,1
+                        bold: True
+                        font_name: "prototype"
+                        text:"      Fan Speed"
+                    Label:
+                        size_hint_x:85
+                BoxLayout:
+                    size_hint_y:5
+                    Slider:
+                        id: slider_fan
+                        size_hint_x:8
+                        padding:15
+                        min:0
+                        max:100
+                        value:0
+                        value_track:True
+                        value_track_color: [0.94,0.69,0.09,1]
+                        value_track_width: 5
+                    Label:
+                        text:"{}".format(int(slider_fan.value))
+                        size_hint_x:2
+                        font_size:15
+                        font_name: "prototype"
+                        color:1,1,1,1
+                        bold:True
+                        canvas.before:
+                            Color:
+                                rgb:0.13,0.14,0.16
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                Label:
+                    size_hint_y:5
+                BoxLayout:
+                    size_hint_y:8
+                    spacing:20
+                    padding:10
+                    Button:
+                        color:1,1,1,1
+                        bold:True
+                        text:"Start"
+                        font_size:18
+                        font_name: "prototype"
+                        background_color:(0.26,0.63,0.82,1)
+                        on_press: root.start()
+                    Button:
+                        color:1,1,1,1
+                        bold:True
+                        text:"Restart"
+                        font_size:18
+                        font_name: "prototype"
+                        background_color:(0.26,0.63,0.82,1)
+                        on_press: root.stop()
+                Label:
+                    size_hint_y:22
+
